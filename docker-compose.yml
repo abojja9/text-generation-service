@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  text-generation-api:
+    build: .
+    ports:
+      - "8002:8000"
+    env_file:
+      - .env
+    environment:
+      - HF_TOKEN=${HUGGINGFACE_TOKEN}
+    volumes:
+      - ./src:/app/src
+      - ./logs:/app/logs
+      - huggingface_cache:/home/appuser/.cache/huggingface
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  huggingface_cache:
+    name: huggingface_cache
