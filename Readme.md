@@ -53,7 +53,7 @@ The service uses TinyLlama-1.1B-Chat-v1.0, which is a 1.1 billion parameter lang
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/abojja9/text-generation-service
 cd text-generation-service
 ```
 
