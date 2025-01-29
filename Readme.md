@@ -93,11 +93,6 @@ The service will be available at `http://localhost:8002`.
 
 The service uses OAuth2 with JWT tokens for authentication. To get started, use the default admin credentials:
 
-- Username: `agam`
-- Password: `StrongPass123!`
-
-or 
-
 - Username: `admin`
 - Password: `admin`
 
